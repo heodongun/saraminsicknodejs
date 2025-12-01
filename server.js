@@ -3,6 +3,12 @@ const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
 const fs = require('fs');
+const util = require('util');
+
+// Node 22+ drops util.isNullOrUndefined; add it back for tfjs-node compatibility.
+if (typeof util.isNullOrUndefined !== 'function') {
+    util.isNullOrUndefined = (value) => value === null || value === undefined;
+}
 const multer = require('multer');
 const tf = require('@tensorflow/tfjs-node');
 const cocoSsd = require('@tensorflow-models/coco-ssd');
