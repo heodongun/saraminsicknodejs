@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
-package-lock.json
+# Keep lockfile in repo for reproducible installs (used by cloud builds)
+!package-lock.json
 yarn.lock
 
 # Environment
